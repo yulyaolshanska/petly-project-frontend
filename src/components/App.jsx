@@ -10,6 +10,7 @@ import theme from "styles/theme";
 import NoticesCategoriesList from "./NoticesCategoriesList/NoticesCategoriesList";
 import Loader from "./Loader";
 
+
 const SharedLayout = lazy(() => import("./SharedLayout"));
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));

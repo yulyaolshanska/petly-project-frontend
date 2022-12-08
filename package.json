@@ -1,5 +1,5 @@
 {
-  "name": "petly-project-front",
+  "name": "petly-project-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +7,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.9.0",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.3",
     "modern-normalize": "^1.1.0",
     "nanoid": "^4.0.0",
     "react": "^18.1.0",

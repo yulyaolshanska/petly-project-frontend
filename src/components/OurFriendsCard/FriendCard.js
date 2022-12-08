@@ -5,26 +5,25 @@ import image from "../../img/defaultLogo.jpg";
 const SERVER_NAME = process.env.REACT_APP_SITE_URL;
 const BASE_URL = `${SERVER_NAME}/friends`;
 // const BASE_URL = "https://petly-be.herokuapp.com/friends";  //is not using now
-
 const FriendCard = friend => {
-  const { title, address, email, phone, workDays, imageUrl, url } = friend.friend;
-  const shortName = title.split(" ").slice(0, 3).join(" ");
+  const { name, address, email, phone, workDays, imageUrl, url } = friend.friend;
+  const shortName = name.split(" ").slice(0, 3).join(" ");
 
-  const veryShortName = title.split(" ").slice(0, 2).join(" ");
+  const veryShortName = name.split(" ").slice(0, 2).join(" ");
 
   return (
     <>
       <Title>
         <span>
           <a href={url} target="_blank" rel="noreferrer">
-            {title}
+            {name}
           </a>
         </span>
         {shortName.length > 26 ? veryShortName : shortName}
       </Title>
 
       <Box>
-        <Picture>{imageUrl ? <Img src={BASE_URL + imageUrl} alt={title} /> : <Img src={image} alt={title} />}</Picture>
+        <Picture>{imageUrl ? <Img src={BASE_URL + imageUrl} alt={name} /> : <Img src={image} alt={name} />}</Picture>
         <List>
           <Time>
             Time:
