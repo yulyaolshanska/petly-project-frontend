@@ -11,7 +11,7 @@ export const Container = styled.div`
     padding-top: 160px;
   }
   @media ${p => p.theme.media.desktop} {
-    margin: 0 16px 100px 16px;
+    margin: 0 32px 100px 32px;
     padding-top: 129px;
   }
 `;
