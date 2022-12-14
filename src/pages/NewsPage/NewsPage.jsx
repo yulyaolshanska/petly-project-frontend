@@ -5,6 +5,7 @@ import { Container, Box, Card, Title, SearchBox, Input, Button, NotFoundBox, Not
 import NewsCard from "../../components/NewsCards/NewsCard";
 import searchIcon from "../../img/VectorG.svg";
 import getNews from "./getNews";
+import Loader from "components/Loader";
 
 function News() {
   const [news, setNews] = useState([]);
@@ -54,12 +55,15 @@ function News() {
         </Button>
       </SearchBox>
       <Box>
-        {news.length > 0 &&
+        {news.length > 0 ? (
           filteredNews.map(newItem => (
             <Card key={newItem._id}>
               <NewsCard newItem={newItem} />
             </Card>
-          ))}
+          ))
+        ) : (
+          <Loader />
+        )}
       </Box>
       {search !== "" && query && filteredNews.length === 0 && (
         <NotFoundBox>

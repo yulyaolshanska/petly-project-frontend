@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Box, Card, Title } from "./OurFriendsPage.styled";
 import FriendCard from "../../components/OurFriendsCard/FriendCard";
 import getFriends from "./getFriends";
+import Loader from "components/Loader";
 
 function Friends() {
   const [friends, setFriends] = useState([]);
@@ -20,13 +21,17 @@ function Friends() {
   return (
     <Container>
       <Title>Our friend</Title>
-      <Box>
-        {friends.map(friend => (
-          <Card key={friend._id}>
-            <FriendCard friend={friend} />
-          </Card>
-        ))}
-      </Box>
+      {friends.length > 0 ? (
+        <Box>
+          {friends.map(friend => (
+            <Card key={friend._id}>
+              <FriendCard friend={friend} />
+            </Card>
+          ))}
+        </Box>
+      ) : (
+        <Loader />
+      )}
     </Container>
   );
 }

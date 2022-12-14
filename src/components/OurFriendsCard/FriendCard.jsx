@@ -7,8 +7,8 @@ const BASE_URL = `${SERVER_NAME}/friends`;
 // const BASE_URL = "https://petly-be.herokuapp.com/friends";  //is not using now
 const FriendCard = friend => {
   const { name, address, email, phone, workDays, imageUrl, url } = friend.friend;
-  const shortName = name.split(" ").slice(0, 3).join(" ");
 
+  const shortName = name.split(" ").slice(0, 3).join(" ");
   const veryShortName = name.split(" ").slice(0, 2).join(" ");
 
   return (
