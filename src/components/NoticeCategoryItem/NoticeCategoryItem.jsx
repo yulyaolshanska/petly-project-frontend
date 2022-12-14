@@ -12,6 +12,7 @@ import {
   ContainerDescription,
   Table,
   ButtonMore,
+  DelButton,
 } from "./NoticeCategoryItem.styled";
 import unlike from "img/unlike.svg";
 import like from "img/like.svg";
@@ -19,6 +20,7 @@ import defoultImage from "../../img/defaultLogo.jpg";
 import { noticeActions } from "redux/notices/noticeSlice";
 import { userSlice } from "redux/user";
 import { useAddFavoriteNoticeMutation, useDeleteFavoriteNoticeMutation } from "redux/userApi";
+import { DeleteBtn, DelIcon } from "components/Button/Button.styled";
 
 const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, location, price, image, favoriteNoticeId, notieceId }) => {
   const [isFavorite, setFavorite] = useState(false);
@@ -117,6 +119,18 @@ const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, 
         <BtnFavorite type="button" onClick={handleClickFavorite}>
           <img src={isFavorite ? like : unlike} alt="unlike" />
         </BtnFavorite>
+        {isUserNotice && (
+          <DelButton
+            type="button"
+            disabled={isDeleting}
+            onClick={() => {
+              toast.warn("😹 Notice is delete");
+              return deleteNotice(id);
+            }}
+          >
+            <DelIcon />
+          </DelButton>
+        )}
       </ImageThumb>
       <div>
         <Title>{title}</Title>
@@ -151,18 +165,6 @@ const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, 
       <ButtonMore active="true" type="button" onClick={() => openModalNotice(id, isFavorite)}>
         Learn more
       </ButtonMore>
-      {isUserNotice && (
-        <ButtonMore
-          type="button"
-          disabled={isDeleting}
-          onClick={() => {
-            toast.warn("😹 Notice is delete");
-            return deleteNotice(id);
-          }}
-        >
-          Delete
-        </ButtonMore>
-      )}
     </Item>
   );
 };

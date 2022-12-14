@@ -1,10 +1,14 @@
+import { DeleteBtn } from "components/Button/Button.styled";
 import styled from "styled-components";
 
 export const Item = styled.li`
   width: 280px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  :not(:last-child) {
+    margin-right: 20px;
+  }
+
   margin-bottom: 32px;
   background-color: #ffffff;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
@@ -12,6 +16,9 @@ export const Item = styled.li`
 
   @media ${p => p.theme.media.tablet} {
     width: 336px;
+    :not(:last-child) {
+      margin-right: 30px;
+    }
   }
 
   @media ${p => p.theme.media.desktop} {
@@ -75,8 +82,8 @@ export const BtnFavorite = styled.button`
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 
   display: flex;
   align-items: center;
@@ -86,6 +93,15 @@ export const BtnFavorite = styled.button`
   border-radius: 50%;
   border: none;
   cursor: pointer;
+`;
+
+export const DelButton = styled(DeleteBtn)`
+  width: 40px;
+  height: 40px;
+  right: 12px;
+  top: 64px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
 `;
 
 export const Title = styled.h2`
