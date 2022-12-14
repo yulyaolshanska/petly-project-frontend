@@ -3,6 +3,7 @@ import { useGetUserFavoriteQuery } from "redux/userApi";
 import { List } from "components/NoticesCategoriesList/NoticesCategoriesList.styled";
 import NoticeCategoryItem from "components/NoticeCategoryItem";
 import { NotFoundBox, NotFound } from "pages/NewsPage/NewsPage.styled";
+import Loader from "components/Loader";
 
 const NoticeFavList = ({ filter, category, perPage, page, favoriteNoticeId, notieceId }) => {
   const [noti, setNoti] = useState([]);
@@ -35,7 +36,9 @@ const NoticeFavList = ({ filter, category, perPage, page, favoriteNoticeId, noti
         </NotFoundBox>
       )}
 
-      {!isLoading &&
+      {isLoading ? (
+        <Loader />
+      ) : (
         noti?.map(({ _id, avatar, title, breed, location, birthday, price, name, category }) => (
           <NoticeCategoryItem
             key={_id}
@@ -51,7 +54,8 @@ const NoticeFavList = ({ filter, category, perPage, page, favoriteNoticeId, noti
             favoriteNoticeId={favoriteNoticeId}
             notieceId={notieceId}
           />
-        ))}
+        ))
+      )}
     </List>
   );
 };
