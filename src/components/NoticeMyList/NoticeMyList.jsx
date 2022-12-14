@@ -4,6 +4,7 @@ import { List } from "components/NoticesCategoriesList/NoticesCategoriesList.sty
 import NoticeCategoryItem from "components/NoticeCategoryItem";
 import { useGetUserQuery } from "redux/userApi";
 import { NotFoundBox, NotFound } from "pages/NewsPage/NewsPage.styled";
+import Loader from "components/Loader";
 
 const NoticeMyList = ({ filter, category, perPage, page, favoriteNoticeId }) => {
   const [noti, setNoti] = useState([]);
@@ -42,7 +43,9 @@ const NoticeMyList = ({ filter, category, perPage, page, favoriteNoticeId }) => 
         </NotFoundBox>
       )}
 
-      {!isLoading &&
+      {isLoading ? (
+        <Loader />
+      ) : (
         noti?.map(({ _id, avatar, title, breed, location, birthday, price, name, category }) => (
           <NoticeCategoryItem
             key={_id}
@@ -58,7 +61,8 @@ const NoticeMyList = ({ filter, category, perPage, page, favoriteNoticeId }) => 
             favoriteNoticeId={favoriteNoticeId}
             notieceId={notieceId}
           />
-        ))}
+        ))
+      )}
     </List>
   );
 };
