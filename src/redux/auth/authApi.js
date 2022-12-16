@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const SERVER_NAME = process.env.REACT_APP_SITE_URL;
 const BASE_URL = `${SERVER_NAME}/auth`;
+// const BASE_URL = "http://localhost:3001/auth";
+
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({

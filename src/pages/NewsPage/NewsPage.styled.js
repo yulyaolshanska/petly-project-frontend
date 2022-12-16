@@ -134,4 +134,5 @@ export const NotFound = styled.p`
 export const NotFoundBox = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;

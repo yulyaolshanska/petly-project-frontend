@@ -5,7 +5,9 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 32px;
   padding-top: 30px;
-
+  @media ${p => p.theme.media.mobileM} {
+    justify-content: center;
+  }
   @media ${p => p.theme.media.tablet} {
     padding-top: 60px;
   }

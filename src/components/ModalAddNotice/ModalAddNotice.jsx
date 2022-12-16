@@ -71,7 +71,6 @@ function ModalAddNotice() {
 
       const newDateFormat = changedateformat(formdata.birthday);
       formdata.birthday = newDateFormat;
-
       await addNotice({ formdata, noticeCategory });
       dispatch(noticeActions.changeModalAddNotice());
     } catch (error) {

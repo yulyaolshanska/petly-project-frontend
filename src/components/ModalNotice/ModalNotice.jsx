@@ -46,7 +46,7 @@ function ModalNotice({ onClose, favorite }) {
               <Cathegory>{data.notice.category}</Cathegory>
             </PictureData>
             <div>
-              <Header>Cute dog looking for a home</Header>
+              <Header>Cute {data.notice.name} looking for a home</Header>
               <ul>
                 <MyLi>
                   <p>Name:</p>

@@ -20,7 +20,7 @@ import defoultImage from "../../img/defaultLogo.jpg";
 import { noticeActions } from "redux/notices/noticeSlice";
 import { userSlice } from "redux/user";
 import { useAddFavoriteNoticeMutation, useDeleteFavoriteNoticeMutation } from "redux/userApi";
-import { DelIcon } from "components/Button/Button.styled";
+import { DelIcon } from "components/PetsListItem/PetsListItem.styled";
 
 const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, location, price, image, favoriteNoticeId, notieceId }) => {
   const [isFavorite, setFavorite] = useState(false);
