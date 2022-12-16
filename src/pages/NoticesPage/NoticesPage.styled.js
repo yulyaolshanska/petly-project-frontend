@@ -11,7 +11,7 @@ export const Container = styled.div`
   }
 
   @media ${p => p.theme.media.desktop} {
-    padding: 127px 16px 200px 16px;
+    padding: 127px 32px 200px 32px;
   }
 `;
 
