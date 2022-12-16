@@ -5,9 +5,9 @@ export const Item = styled.li`
   width: 280px;
   display: flex;
   flex-direction: column;
-  :not(:last-child) {
+  /* :not(:last-child) {
     margin-right: 20px;
-  }
+  } */
 
   margin-bottom: 32px;
   background-color: #ffffff;
@@ -16,9 +16,9 @@ export const Item = styled.li`
 
   @media ${p => p.theme.media.tablet} {
     width: 336px;
-    :not(:last-child) {
+    /* :not(:last-child) {
       margin-right: 30px;
-    }
+    } */
   }
 
   @media ${p => p.theme.media.desktop} {

@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const SERVER_NAME = process.env.REACT_APP_SITE_URL; // REACT_APP_SITE_URL=https://example-project-petly.onrender.com/
 const BASE_URL = `${SERVER_NAME}/notices`;
-// const BASE_URL = "https://petly-be.herokuapp.com/notices";  //is not using
 
 // const BASE_URL = "http://localhost:3001/notices";
 
@@ -64,10 +63,11 @@ export const noticesApi = createApi({
       query: ({ formdata, noticeCategory }) => {
         const newFormdata = new FormData();
         Object.keys(formdata).forEach(key => newFormdata.append(key, formdata[key]));
-        if (formdata.avatar) {
+        if (formdata.avatar.length > 0) {
           newFormdata.set("avatar", formdata.avatar[0]);
+        } else {
+          newFormdata.set("avatar", "");
         }
-        console.log("======userApi newForm:", newFormdata);
         return { url: `?category=${noticeCategory}`, method: "POST", body: newFormdata };
       },
       invalidatesTags: ["Notices"],
