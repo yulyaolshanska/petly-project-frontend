@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   @media ${p => p.theme.media.mobile} {
-    padding: 100px 32px 100px 32px;
+    padding: 100px 32px 30px 32px;
   }
 
   @media ${p => p.theme.media.tablet} {
-    padding: 160px 32px 100px 32px;
+    padding: 160px 32px 30px 32px;
   }
   @media ${p => p.theme.media.desktop} {
-    padding: 126px 32px 200px 32px;
+    padding: 126px 32px 40px 32px;
   }
 `;
 

@@ -1,24 +1,17 @@
 import styled from "styled-components";
 
 export const UserPageContainer = styled.div`
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 119px;
+  padding: 119px 20px 20px 20px;
   @media ${p => p.theme.media.mobile} {
     width: 320px;
   }
   @media ${p => p.theme.media.tablet} {
     width: 768px;
-    padding-left: 0px;
-    padding-right: 32px;
-    padding-top: 158px;
+    padding: 158px 32px 30px 32px;
   }
   @media ${p => p.theme.media.desktop} {
     display: flex;
-    padding-left: 0px;
-    padding-right: 16px;
-    padding-top: 126px;
+    padding: 126px 32px 40px 32px;
     width: 1280px;
   }
 `;
