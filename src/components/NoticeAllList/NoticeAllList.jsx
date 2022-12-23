@@ -4,10 +4,23 @@ import { List } from "components/NoticesCategoriesList/NoticesCategoriesList.sty
 import NoticeCategoryItem from "components/NoticeCategoryItem";
 import { NotFoundBox, NotFound } from "pages/NewsPage/NewsPage.styled";
 import Loader from "components/Loader";
+import { PaginationButton, PaginationButtonContainer } from "components/Button/Button.styled";
 
-const NoticeAllList = ({ filter, category, perPage, page, favoriteNoticeId, notieceId }) => {
+const NoticeAllList = ({
+  getIsLastPage,
+  handlePrevClick,
+  handleNextClick,
+  filter,
+  category,
+  perPage,
+  page,
+  favoriteNoticeId,
+  notieceId,
+  currentPage,
+}) => {
+  const [isLastPage, setIsLastPage] = useState(false);
   const [noti, setNoti] = useState([]);
-  const { data = [], isLoading } = useGetNoticesQuery({ filter, category, perPage, page });
+  const { data = [], isLoading } = useGetNoticesQuery({ filter, category, perPage, currentPage });
 
   useEffect(() => {
     if (!data) {
@@ -15,6 +28,17 @@ const NoticeAllList = ({ filter, category, perPage, page, favoriteNoticeId, noti
     }
     setNoti(data.notices);
   }, [data]);
+
+  useEffect(() => {
+    if (noti?.length === 0) {
+      return;
+    }
+    if (noti?.length < 15) {
+      setIsLastPage(true);
+    } else if (noti?.length >= 15) {
+      setIsLastPage(false);
+    }
+  }, [noti]);
 
   const setCategory = category => {
     switch (category) {
@@ -30,34 +54,46 @@ const NoticeAllList = ({ filter, category, perPage, page, favoriteNoticeId, noti
   };
 
   return (
-    <List>
-      {!isLoading && noti?.length === 0 && (
-        <NotFoundBox>
-          <NotFound>Nothing found. Please, try again.</NotFound>
-        </NotFoundBox>
-      )}
+    <>
+      <List>
+        {!isLoading && noti?.length === 0 && (
+          <NotFoundBox>
+            <NotFound>Nothing found. Please, try again.</NotFound>
+          </NotFoundBox>
+        )}
 
-      {!isLoading ? (
-        noti?.map(({ _id, avatar, title, breed, location, birthday, price, name, category }) => (
-          <NoticeCategoryItem
-            key={_id}
-            id={_id}
-            image={avatar}
-            title={title}
-            name={name}
-            breed={breed}
-            category={setCategory(category)}
-            location={location}
-            birthday={birthday}
-            price={price}
-            favoriteNoticeId={favoriteNoticeId}
-            notieceId={notieceId}
-          />
-        ))
-      ) : (
-        <Loader />
+        {!isLoading ? (
+          noti?.map(({ _id, avatar, title, breed, location, birthday, price, name, category }) => (
+            <NoticeCategoryItem
+              key={_id}
+              id={_id}
+              image={avatar}
+              title={title}
+              name={name}
+              breed={breed}
+              category={setCategory(category)}
+              location={location}
+              birthday={birthday}
+              price={price}
+              favoriteNoticeId={favoriteNoticeId}
+              notieceId={notieceId}
+            />
+          ))
+        ) : (
+          <Loader />
+        )}
+      </List>
+      {!isLoading && noti?.length !== 0 && (
+        <PaginationButtonContainer>
+          <PaginationButton activeBtn={currentPage > 1} disabled={currentPage <= 1} onClick={handlePrevClick}>
+            Prev
+          </PaginationButton>
+          <PaginationButton activeBtn={!isLastPage} disabled={isLastPage} onClick={handleNextClick}>
+            Next
+          </PaginationButton>
+        </PaginationButtonContainer>
       )}
-    </List>
+    </>
   );
 };
 
