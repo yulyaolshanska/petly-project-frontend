@@ -1,0 +1,118 @@
+[
+  {
+    "name": "Missy",
+    "title": "Beautiful dog",
+    "birthday": "11.03.2020",
+    "breed": "Husky",
+    "male": "female",
+    "location": "Kyiv,Brovary",
+    "price": 120,
+    "comments": "The best dog ever",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671818046/tblqvxwrktw06bbq22jp.jpg",
+    "photoId": "6390e0e11a5a89b94ddd4f2a_1671816770902",
+    "category": "sell",
+    "owner": {
+      "$oid": "6390e4e12a5a89b74ddd4f5a"
+    }
+  },
+  {
+    "name": "Missy",
+    "title": "Beautiful dog",
+    "birthday": "11.02.2018",
+    "breed": "Husky",
+    "male": "female",
+    "location": "Kyiv,Brovary",
+    "price": 100,
+    "comments": "The best dog ever",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671816771/ipl6lodoeapyfdyzuya6.jpg",
+    "photoId": "6376a3e14a5a89b94ddd4f2a_1671816770902",
+    "category": "sell",
+    "owner": {
+      "$oid": "6390e4e12a5a89b74ddd4f5a"
+    }
+  },
+  {
+    "name": "Cleo",
+    "title": "Beautiful dog",
+    "birthday": "11.03.2021",
+    "breed": "Husky",
+    "male": "female",
+    "location": "Kyiv,Brovary",
+    "price": 1500,
+    "comments": "The best dog ever",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671816771/ipl6lodoeapyfdyzuya6.jpg",
+    "photoId": "6390a3i14a5a89b54ddd4f2a_1671816770902",
+    "category": "sell",
+    "owner": {
+      "$oid": "6376e4e12a5a89b74ddd4f5a"
+    }
+  },
+  {
+    "name": "Chilli",
+    "title": "Dog in good hands",
+    "birthday": "23.06.2018",
+    "breed": "Cocker Spaniel",
+    "male": "female",
+    "location": "Poltava, Center",
+    "comments": "The best dog ever",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671818873/ml5rfb8uypu5aeojs9jl.jpg",
+    "photoId": "6390e4e12a5a89b74ddd4f5a_1671818872941",
+    "category": "in_good_hands",
+    "owner": {
+      "$oid": "6390e4e12a5a89b74ddd4f5a"
+    }
+  },
+  {
+    "name": "Lucky",
+    "title": "Dog in good hands",
+    "birthday": "23.05.2021",
+    "breed": "Cocker Spaniel",
+    "male": "female",
+    "location": "Kharkiv, Center",
+    "price": 30,
+
+    "comments": "The best dog ever",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671818873/ml5rfb8uypu5aeojs9jl.jpg",
+    "photoId": "6390e4e12a3f89b74ddd4f5a_16735318872941",
+    "category": "sell",
+    "owner": {
+      "$oid": "6390e4e12a5a89b74ddd4f5a"
+    }
+  },
+  {
+    "name": "Cleo",
+    "title": "Dog in good hands",
+    "birthday": "23.05.2021",
+    "breed": "Cocker Spaniel",
+    "male": "female",
+    "location": "Kharkiv, Center",
+    "price": 900,
+
+    "comments": "The best dog ever",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671818873/ml5rfb8uypu5aeojs9jl.jpg",
+    "photoId": "2390e4e12a3f89b74kld4f5a_1671818872941",
+    "category": "sell",
+    "owner": {
+      "$oid": "6390e4e12a5a89b74ddd4f5a"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63a5f454744b87feb90485bb"
+    },
+    "name": "Missy",
+    "title": "Sell beautiful dog",
+    "birthday": "23.08.2020",
+    "breed": "Golden retriever",
+    "male": "female",
+    "location": "Odesa,Langeron",
+    "price": 100,
+    "comments": "Little cute puppy",
+    "avatar": "http://res.cloudinary.com/dwghwsgmr/image/upload/v1671820371/nddsawlwr6czfjgxosht.jpg",
+    "photoId": "6390e4e12a5a89b74ddd4f5a_1671820378143",
+    "category": "sell",
+    "owner": {
+      "$oid": "6390e4e12a5a89b74ddd4f5a"
+    }
+  }
+]

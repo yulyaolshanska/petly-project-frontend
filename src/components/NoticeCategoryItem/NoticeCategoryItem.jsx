@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDeleteNoticeMutation } from "redux/noticesApi";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { parse } from "date-fns";
 import {
   Item,
   ImageThumb,
@@ -32,10 +33,6 @@ const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, 
   const dispatch = useDispatch();
   const { userActions } = userSlice;
   const [userNotice, setUserNotics] = useState(notieceId);
-
-  // const SERVER_NAME = process.env.REACT_APP_SITE_URL;
-  // const BASE_URL = `${SERVER_NAME}/`; // no nedd due to cloudinary
-  // const BASE_URL = "https://petly-be.herokuapp.com/"; //is not using now
   const openModalNotice = id => {
     dispatch(noticeActions.changeModalViewNotice(id));
     dispatch(noticeActions.changeModalNoticeId(id));
@@ -74,9 +71,8 @@ const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, 
     if (!date) {
       return "";
     }
-
     let today = new Date();
-    let birthDate = new Date(date);
+    const birthDate = parse(date, "dd.MM.yyyy", new Date());
     let age = today.getFullYear() - birthDate.getFullYear();
 
     let m = today.getMonth() - birthDate.getMonth();
@@ -86,7 +82,6 @@ const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, 
       age--;
     }
     if (age === 0) {
-      m = 12 + m;
       if (d < 0 || (d === 0 && today.getDate() < birthDate.getDate())) {
         m--;
       }
@@ -153,11 +148,12 @@ const NoticeCategoryItem = ({ id, name, title, birthday, breed, category, male, 
                 <td>Age:</td>
                 <td>{currentAge(birthday)}</td>
               </tr>
-
-              <tr style={category === "sell" ? { color: "transparent" } : { color: "" }}>
-                <td>Price:</td>
-                <td>{price}</td>
-              </tr>
+              {price && (
+                <tr style={category === "sell" ? { color: "transparent" } : { color: "" }}>
+                  <td>Price:</td>
+                  <td>{price}</td>
+                </tr>
+              )}
             </tbody>
           </Table>
         </ContainerDescription>
