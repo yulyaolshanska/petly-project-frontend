@@ -24,12 +24,11 @@ export const noticesApi = createApi({
 
   endpoints: builder => ({
     getNotices: builder.query({
-      query: ({ page, perPage, category, filter }) => {
+      query: ({ currentPage, perPage, category, filter }) => {
         const categoryQuery = !!category ? `category=${category}` : "";
-        const pageQuery = page === 1 ? "" : `&&page=${page}`;
+        const pageQuery = `&&page=${currentPage}`;
         const perPageQuery = !!perPage !== 15 ? "" : `&&per_page=${perPage}`;
         const filterQuery = filter === "" ? "" : `&&filter=${filter}`;
-
         return `/?${categoryQuery + pageQuery + perPageQuery + filterQuery}`;
       },
       providesTags: ["Notices"],
