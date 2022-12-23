@@ -52,3 +52,16 @@ export const DelIcon = styled(HiTrash)`
     height: 24px;
   }
 `;
+
+export const PaginationButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+export const PaginationButton = styled(StyledButton)`
+  border-radius: 20%;
+  :not(:last-child) {
+    margin-right: 10px;
+  }
+  color: ${p => (p.activeBtn ? p.theme.colors.accent : "rgb(128 128 128 / 37%);")};
+`;

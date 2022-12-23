@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
   @media ${p => p.theme.media.mobile} {
     max-width: 100%;
-    padding: 100px 20px 100px;
+    padding: 100px 20px 20px 20px;
   }
 
   @media ${p => p.theme.media.tablet} {
-    padding: 160px 32px 100px 32px;
+    padding: 160px 32px 30px 32px;
   }
 
   @media ${p => p.theme.media.desktop} {
-    padding: 127px 32px 200px 32px;
+    padding: 127px 32px 40px 32px;
   }
 `;
 

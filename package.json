@@ -16,6 +16,7 @@
     "react-icons": "^4.6.0",
     "react-inlinesvg": "^3.0.1",
     "react-loader-spinner": "^5.1.7-beta.1",
+    "react-paginate": "^8.1.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",

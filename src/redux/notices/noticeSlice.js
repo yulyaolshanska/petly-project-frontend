@@ -5,6 +5,7 @@ const initialState = {
   filter: "",
   page: 1,
   per_page: 15,
+  isLastPage: false,
   modalAddNotice: {
     active: false,
   },
@@ -76,6 +77,12 @@ export const noticeSlice = createSlice({
       return {
         ...state,
         modalAddPets: { ...state.modalAddPets, active: !state.modalAddPets.active },
+      };
+    },
+    changeIsLastPage(state, action) {
+      return {
+        ...state,
+        isLastPage: !state.isLastPage,
       };
     },
   },

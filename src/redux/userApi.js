@@ -68,18 +68,21 @@ export const userApi = createApi({
     }),
 
     getUserNotices: builder.query({
-      query: () => ({
-        url: `/notice`,
-        method: "GET",
-      }),
+      query: ({ currentPage, perPage }) => {
+        const pageQuery = `&&page=${currentPage}`;
+        const perPageQuery = !!perPage !== 15 ? "" : `&&per_page=${perPage}`;
+
+        return `/notice?${pageQuery + perPageQuery}`;
+      },
       providesTags: ["User"],
     }),
 
     getUserFavorite: builder.query({
-      query: () => ({
-        url: `/favorite`,
-        method: "GET",
-      }),
+      query: ({ currentPage, perPage }) => {
+        const pageQuery = `&&page=${currentPage}`;
+        const perPageQuery = !!perPage !== 15 ? "" : `&&per_page=${perPage}`;
+        return `/favorite?${pageQuery + perPageQuery}`;
+      },
       providesTags: ["User"],
     }),
 
