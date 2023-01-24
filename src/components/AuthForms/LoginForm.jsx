@@ -47,7 +47,11 @@ export const LoginForm = () => {
       <Input type={"email"} placeholder={"Email"} {...register("email")} />
       <ErrorText>{errors.email?.message}</ErrorText>
       <ButtonWrapper>
-        <Input type={showPass ? "text" : "password"} placeholder={"Password"} {...register("password")} />
+        <Input
+          type={showPass ? "text" : "password"}
+          placeholder={"Password"}
+          {...register("password")}
+        />
         <ButtonEye
           name="showPass"
           onMouseDown={() => setShowPass(true)}

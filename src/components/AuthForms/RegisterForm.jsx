@@ -1,7 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { Form, Input, RegisterBtn, NextBtn, BackBtn, ErrorText, ButtonWrapper, ButtonEye } from "./authForms.styled";
+import {
+  Form,
+  Input,
+  RegisterBtn,
+  NextBtn,
+  BackBtn,
+  ErrorText,
+  ButtonWrapper,
+  ButtonEye,
+} from "./authForms.styled";
 import { authSlice } from "redux/auth";
 import { useRegisterUserMutation } from "redux/auth/authApi";
 import { useNavigate } from "react-router-dom";
@@ -85,7 +94,10 @@ const RegisterForm = () => {
                 required: "This is required",
                 minLength: { value: 7, message: "Min length is 7" },
                 maxLength: { value: 32, message: "Min length is 32" },
-                pattern: { value: passwordRegex, message: "Password should not contain spaces" },
+                pattern: {
+                  value: passwordRegex,
+                  message: "Password should not contain spaces",
+                },
               })}
               type={showPass ? "text" : "password"}
               placeholder="Password"
@@ -127,7 +139,9 @@ const RegisterForm = () => {
             </ButtonEye>
           </ButtonWrapper>
 
-          <ErrorText>{errors?.confirmPassword && <p>{errors?.confirmPassword?.message}</p>}</ErrorText>
+          <ErrorText>
+            {errors?.confirmPassword && <p>{errors?.confirmPassword?.message}</p>}
+          </ErrorText>
         </div>
       )}
       {nextPage && (
@@ -145,7 +159,10 @@ const RegisterForm = () => {
           <Input
             label="City"
             {...register("city", {
-              pattern: { value: cityRegex, message: "Error. Example: Brovary, Kyiv" },
+              pattern: {
+                value: cityRegex,
+                message: "Error. Example: Brovary, Kyiv",
+              },
             })}
             type="text"
             placeholder="City, region"
@@ -156,7 +173,10 @@ const RegisterForm = () => {
             {...register("phone", {
               minLength: { value: 13, message: "Min length is 13" },
               maxLength: { value: 13, message: "Min length is 13" },
-              pattern: { value: phoneRegex, message: "Number must be +3800000000 " },
+              pattern: {
+                value: phoneRegex,
+                message: "Number must be +3800000000 ",
+              },
             })}
             type="tel"
             placeholder="Mobile Phone"
